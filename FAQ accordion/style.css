@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --light-pink: hsl(275, 100%, 97%);
+  --grayish-purple: hsl(292, 16%, 49%);
+  --dark-purple: hsl(292, 42%, 14%);
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.wrap {
+  background: var(--light-pink);
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.wrap > img {
+  position: absolute;
+  width: 100vw;
+  z-index: 1;
+}
+
+.content {
+  position: absolute;
+  z-index: 10;
+  transform: translate(120%, 40%);
+  width: 450px;
+  height: 400px;
+  background: var(--white);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+h1 {
+  margin-left: 10px;
+  font-size: 46px;
+  font-weight: 700;
+}
+#accordion {
+  margin-top: 10px;
+}
+#accordion li {
+  list-style: none;
+  padding: 10px;
+  color: var(--grayish-purple);
+}
+
+#accordion li label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  color: var(--dark-purple);
+  font-weight: bold;
+  font-size: 14px;
+}
+#accordion label + input[type='radio'] {
+  display: none;
+}
+
+#accordion label::after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  content: '+';
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ad28eb;
+  color: var(--white);
+}
+
+#accordion .accordion-content {
+  margin-top: 20px;
+  line-height: 18px;
+  overflow: hidden;
+  font-size: 12px;
+  max-height: 0;
+  /* transition: max-height 0.5s; */
+}
+
+#accordion label + input[type='radio']:checked + .accordion-content {
+  max-height: 400px;
+}
